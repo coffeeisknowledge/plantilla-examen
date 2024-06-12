@@ -1,4 +1,5 @@
 using si730pc2u20201b380.API.Profiles.Domain.Model.Aggregates;
+using si730pc2u20201b380.API.Subscriptions.Domain.Model.Aggregates;
 using si730pc2u20201b380.API.Publishing.Domain.Model.Aggregates;
 using si730pc2u20201b380.API.Publishing.Domain.Model.Entities;
 using si730pc2u20201b380.API.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
@@ -84,6 +85,30 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
                 a.Property(s => s.City).HasColumnName("AddressCity");
                 a.Property(s => s.PostalCode).HasColumnName("AddressPostalCode");
                 a.Property(s => s.Country).HasColumnName("AddressCountry");
+            });
+
+        // Subscriptions Context
+        builder.Entity<Plan>().HasKey(p => p.Id);
+        builder.Entity<Plan>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Plan>().OwnsOne(p => p.Name,
+            n => 
+            {
+                n.WithOwner().HasForeignKey("Id"); 
+                n.Property(p => p.Name).HasColumnName("PlanName");
+            });
+
+        builder.Entity<Plan>().OwnsOne(p => p.MaxUsers,
+            m => 
+            {
+                m.WithOwner().HasForeignKey("Id");
+                m.Property(i => i.MaxUsers).HasColumnName("MaxUsers");
+            });
+
+        builder.Entity<Plan>().OwnsOne(p => p.Default,
+            m => 
+            {
+                m.WithOwner().HasForeignKey("Id");
+                m.Property(i => i.Default).HasColumnName("IsDefault");
             });
 
         

@@ -16,6 +16,11 @@ using si730pc2u20201b380.API.Shared.Infrastructure.Persistence.EFC.Repositories;
 using si730pc2u20201b380.API.Shared.Interfaces.ASP.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using si730pc2u20201b380.API.Subscriptions.Application.Internal.CommandServices;
+using si730pc2u20201b380.API.Subscriptions.Application.Internal.QueryServices;
+using si730pc2u20201b380.API.Subscriptions.Domain.Repositories;
+using si730pc2u20201b380.API.Subscriptions.Domain.Services;
+using si730pc2u20201b380.API.Subscriptions.Infrastructure.Persistence.EFC.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -91,6 +96,11 @@ builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
 builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
 builder.Services.AddScoped<IProfilesContextFacade, ProfilesContextFacade>();
+
+// Subscriptions Bounded Context Injection Configuration
+builder.Services.AddScoped<IPlanRepository, PlanRepository>();
+builder.Services.AddScoped<IPlanCommandService, PlanCommandService>();
+builder.Services.AddScoped<IPlanQueryService, PlanQueryService>();
 
 var app = builder.Build();
 

@@ -29,15 +29,6 @@
       <Folder Include="Publishing\" />
       <Folder Include="Shared\Infrastructure\" />
       <Folder Include="Shared\Interfaces\" />
-      <Folder Include="Subscriptions\Application\Internal\CommandServices\" />
-      <Folder Include="Subscriptions\Application\Internal\QueryServices\" />
-      <Folder Include="Subscriptions\Domain\Model\Commands\" />
-      <Folder Include="Subscriptions\Domain\Model\Queries\" />
-      <Folder Include="Subscriptions\Domain\Repositories\" />
-      <Folder Include="Subscriptions\Domain\Services\" />
-      <Folder Include="Subscriptions\Infrastructure\Persistence\EFC\Repositories\" />
-      <Folder Include="Subscriptions\Interfaces\REST\Resources\" />
-      <Folder Include="Subscriptions\Interfaces\REST\Transform\" />
     </ItemGroup>
 
 </Project>
