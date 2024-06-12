@@ -27,6 +27,15 @@
     <ItemGroup>
       <Folder Include="Profiles\" />
       <Folder Include="Publishing\" />
+      <Folder Include="Sales\Application\Internal\CommandServices\" />
+      <Folder Include="Sales\Application\Internal\QueryServices\" />
+      <Folder Include="Sales\Domain\Model\Commands\" />
+      <Folder Include="Sales\Domain\Model\Queries\" />
+      <Folder Include="Sales\Domain\Repositories\" />
+      <Folder Include="Sales\Domain\Services\" />
+      <Folder Include="Sales\Infrastructure\Persistence\EFC\Repositories\" />
+      <Folder Include="Sales\Interfaces\REST\Resources\" />
+      <Folder Include="Sales\Interfaces\REST\Transform\" />
       <Folder Include="Shared\Infrastructure\" />
       <Folder Include="Shared\Interfaces\" />
     </ItemGroup>
